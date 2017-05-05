@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil</title>
+    @Styles.Render("~/Content/site.css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+
+<body class="jumbotron" >
+
+    <div id="SpaceJeu">
+        <div id="SpaceDe" style="text-align:center">
+            @for (int i = 1; i <= 5; i++)
+            {
+
+                string path = "~/images/de" + i + ".png";
+                <img src="~/images/de1.png" alt="" />
+            }
+            <br />
+            <input type="button" value="Rouler les dés" class="btn btn-primary blue" />
+        </div>
+        <div id="scorecard">
+            <table  border="1">
+                <tr>
+                    <th></th>
+                    <td>You</td>
+                    <td>Bill</td>
+                </tr>
+                <tr id="ones">
+                    <th>Ones</th>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="twos">
+                    <th>Twos</th>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="threes">
+                    <th>Threes</th>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="fours">
+                    <th>Fours</th>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="fives">
+                    <th>Fives</th>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="sixes" class="lastline">
+                    <th>Sixes</th>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="sum">
+                    <th>Sum</th>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="bonus" class="lastline">
+                    <th>Bonus</th>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="three-of-a-kind">
+                    <th>Three of a kind</th>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="four-of-a-kind">
+                    <th>Four of a kind</th>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="full-house">
+                    <th>Full House</th>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="small-straight">
+                    <th>Small straight</th>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="large-straight">
+                    <th>Large straight</th>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="chance">
+                    <th>Chance</th>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="yahtzee" class="lastline">
+                    <th>YAHTZEE</th>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="total-score">
+                    <th>TOTAL SCORE</th>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+
+        </div>
+
+    </div>
+</body>
+
+</html>

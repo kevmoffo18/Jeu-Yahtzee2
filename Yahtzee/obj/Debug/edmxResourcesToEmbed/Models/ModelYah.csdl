@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="bd_YahtzeeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="bd_YahtzeeEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblDe" EntityType="bd_YahtzeeModel.tblDe" />
+    <EntitySet Name="tblFace" EntityType="bd_YahtzeeModel.tblFace" />
+    <AssociationSet Name="FK__tblFace__idDe__1273C1CD" Association="bd_YahtzeeModel.FK__tblFace__idDe__1273C1CD">
+      <End Role="tblDe" EntitySet="tblDe" />
+      <End Role="tblFace" EntitySet="tblFace" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="tblDe">
+    <Key>
+      <PropertyRef Name="idDe" />
+    </Key>
+    <Property Name="idDe" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nomDe" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tblFace" Relationship="bd_YahtzeeModel.FK__tblFace__idDe__1273C1CD" FromRole="tblDe" ToRole="tblFace" />
+  </EntityType>
+  <EntityType Name="tblFace">
+    <Key>
+      <PropertyRef Name="idLance" />
+    </Key>
+    <Property Name="idLance" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nbLancee" Type="Int32" />
+    <Property Name="idDe" Type="Int32" />
+    <NavigationProperty Name="tblDe" Relationship="bd_YahtzeeModel.FK__tblFace__idDe__1273C1CD" FromRole="tblFace" ToRole="tblDe" />
+  </EntityType>
+  <Association Name="FK__tblFace__idDe__1273C1CD">
+    <End Type="bd_YahtzeeModel.tblDe" Role="tblDe" Multiplicity="0..1" />
+    <End Type="bd_YahtzeeModel.tblFace" Role="tblFace" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblDe">
+        <PropertyRef Name="idDe" />
+      </Principal>
+      <Dependent Role="tblFace">
+        <PropertyRef Name="idDe" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

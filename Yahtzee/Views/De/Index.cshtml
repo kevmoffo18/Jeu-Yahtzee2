@@ -1,0 +1,80 @@
+﻿@model Yahtzee.Models.tblDe
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<head>
+    <script type="text/javascript" src="~/Scripts/JsClickDe.js"></script>
+    <link type="text/css" href="~/Content/Site.css" rel="stylesheet" />
+</head>
+<h2>Index</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div id="spaceGame">
+
+        <div id="LanceDe" class="col-md-6">
+            <form method="post">
+                @foreach (string de in ViewBag.ListNomDe)
+                {
+                    string nomDe = de + ".png";
+                    <img src="~/images/@nomDe" alt="" id="@de.Substring(0,2)" onclick="ClickDe(@de.Substring(0,2))" />
+                }
+                <br /><br /><br />
+                <div class="col-md-offset-2 col-md-10">
+                    @if (ViewBag.CptClick > 2)
+                     {
+                        <input type="submit" value="Lancer les dés" class="btn btn-default form-group" disabled  />
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Lancer les dés", "Index", "De", new { area = "" }, new { @class = "btn btn-default form-group"})
+                    }
+
+                </div>
+            </form>
+        </div>
+        <div id="score" class="col-md-6">
+            <table id="scorecard" border="1" class="table">
+                <tr>
+                    <th>Face du dé</th>
+                    <th>Score</th>
+                </tr>
+                <tr id="ones" >
+                    <th>Un</th>
+                    <td class="face">@ViewBag.Face1</td>
+                </tr>
+                <tr id="twos">
+                    <th>Deux</th>
+                    <td class="face">@ViewBag.Face2</td>
+                </tr>
+                <tr id="threes">
+                    <th>Trois</th>
+                    <td class="face">@ViewBag.Face3</td>
+                </tr>
+                <tr id="fours">
+                    <th>Quatre</th>
+                    <td class="face">@ViewBag.Face4</td>
+                </tr>
+                <tr id="fives">
+                    <th>Cinq</th>
+                    <td class="face">@ViewBag.Face5</td>
+                </tr>
+                <tr id="sixes" class="lastline">
+                    <th>Six</th>
+                    <td class="face">@ViewBag.Face6</td>
+                </tr>
+                <tr id="Total">
+                    <th>Total</th>
+                    <td class="face">@ViewBag.Total</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+}
+

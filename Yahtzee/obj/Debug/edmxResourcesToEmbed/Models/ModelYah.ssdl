@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="bd_YahtzeeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tblDe">
+    <Key>
+      <PropertyRef Name="idDe" />
+    </Key>
+    <Property Name="idDe" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nomDe" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="tblFace">
+    <Key>
+      <PropertyRef Name="idLance" />
+    </Key>
+    <Property Name="idLance" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nbLancee" Type="int" />
+    <Property Name="idDe" Type="int" />
+  </EntityType>
+  <Association Name="FK__tblFace__idDe__1273C1CD">
+    <End Role="tblDe" Type="Self.tblDe" Multiplicity="0..1" />
+    <End Role="tblFace" Type="Self.tblFace" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblDe">
+        <PropertyRef Name="idDe" />
+      </Principal>
+      <Dependent Role="tblFace">
+        <PropertyRef Name="idDe" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="bd_YahtzeeModelStoreContainer">
+    <EntitySet Name="tblDe" EntityType="Self.tblDe" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblFace" EntityType="Self.tblFace" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__tblFace__idDe__1273C1CD" Association="Self.FK__tblFace__idDe__1273C1CD">
+      <End Role="tblDe" EntitySet="tblDe" />
+      <End Role="tblFace" EntitySet="tblFace" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
