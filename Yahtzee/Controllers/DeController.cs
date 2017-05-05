@@ -41,6 +41,11 @@ namespace Yahtzee.Controllers
                 SaveAllFaceDe();
             }
 
+            if(cptClik>=4)
+            {
+                cptClik = 0;
+            }
+
 
             return View();
         }

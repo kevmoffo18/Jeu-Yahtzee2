@@ -1,8 +1,6 @@
 ﻿@model Yahtzee.Models.tblDe
 
-@{
-    ViewBag.Title = "Index";
-}
+
 
 <head>
     <script type="text/javascript" src="~/Scripts/JsClickDe.js"></script>
@@ -22,12 +20,14 @@
                 {
                     string nomDe = de + ".png";
                     <img src="~/images/@nomDe" alt="" id="@de.Substring(0,2)" onclick="ClickDe(@de.Substring(0,2))" />
+                    
                 }
                 <br /><br /><br />
                 <div class="col-md-offset-2 col-md-10">
                     @if (ViewBag.CptClick > 2)
                      {
-                        <input type="submit" value="Lancer les dés" class="btn btn-default form-group" disabled  />
+                        <input type="submit" value="Lancer les dés" class="btn btn-default form-group" disabled  /><br /><br />
+                        <h3 style="color:red"> Actualiser pour rejouer</h3>
                     }
                     else
                     {
